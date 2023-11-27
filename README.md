@@ -46,10 +46,13 @@ olduðunu ConnectionString içine yazdýktan sonra
 hata giderildi.
 
 Ders-9/10;
-
+- DataAccessLayer kýsmýnda bulunan EntityFramework klasörünün içine teker teker Ef...Dal olarak classlarýmý 
+oluþturdum ve GenericRepositoryden miras aldým.
 - Abstract folder içine IGuideDal olarak sýnýfýmý oluþtrup Crud methodlarýmý yazdým.
 - DataAccessLayer projemde Abstract classlarda her bir entity class'ýn içine Crud iþlemleri için metotlar yazmam
 gerekiyor ancak hepsine teker teker Crud operasyonlarý yazmak yerine IGenericDal olarak bütünü kapsayan bir 
 yapýyý kullanýyorum. Bu IGenericDal interface'ini herbir entity class'ý için girip inherit yaparak kullanýyorum.
 - DataAccessLayer projemde daha sonra Repository folder içine Generic class oluþturup Crud iþlemleri için az
 önce yaptýðýmýz gibi inherit edilebilecek kodlarýmýzý yazdým.
+
+
