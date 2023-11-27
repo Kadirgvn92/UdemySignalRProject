@@ -18,4 +18,8 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SignalR.BusinessLayer\SignalR.BusinessLayer.csproj" />
+  </ItemGroup>
+
 </Project>
