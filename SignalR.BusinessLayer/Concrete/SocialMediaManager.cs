@@ -42,4 +42,3 @@ public class SocialMediaManager : ISocialMediaService
         _socialMediaDal.Update(entity);
     }
 }
-}
