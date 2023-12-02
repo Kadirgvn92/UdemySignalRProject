@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SignalR.DtoLayer.ProductDto;
-public class GetProductDto
+public class ResultProductWitCategory 
 {
     public int ProductID { get; set; }
     public string ProductName { get; set; }
@@ -13,4 +13,5 @@ public class GetProductDto
     public decimal Price { get; set; }
     public string ImageUrl { get; set; }
     public bool ProductStatus { get; set; }
+    public string CategoryName { get; set; }
 }

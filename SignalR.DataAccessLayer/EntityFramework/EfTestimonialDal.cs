@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SignalR.DataAccessLayer.EntityFramework;
-internal class EfTestimonialDal : GenericRepository<Testimonial>, ITestimonialDal
+public class EfTestimonialDal : GenericRepository<Testimonial>, ITestimonialDal
 {
     public EfTestimonialDal(SignalRContext context) : base(context)
     {

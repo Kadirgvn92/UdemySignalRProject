@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 namespace SignalR.DtoLayer.ProductDto;
 public class UpdateProductDto
 {
-    public int FeatureID { get; set; }
-    public string Title1 { get; set; }
-    public string Description1 { get; set; }
-    public string Title2 { get; set; }
-    public string Description2 { get; set; }
-    public string Title3 { get; set; }
-    public string Description3 { get; set; }
+    public int ProductID { get; set; }
+    public string ProductName { get; set; }
+    public string Description { get; set; }
+    public decimal Price { get; set; }
+    public string ImageUrl { get; set; }
+    public bool ProductStatus { get; set; }
 }
