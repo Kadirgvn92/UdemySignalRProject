@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SignalR.DataAccessLayer.EntityFramework;
-internal class EfCategoryDal : GenericRepository<Category>, ICategoryDal
+public class EfCategoryDal : GenericRepository<Category>, ICategoryDal
 {
     public EfCategoryDal(SignalRContext context) : base(context)
     {
