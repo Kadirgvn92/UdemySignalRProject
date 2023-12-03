@@ -55,4 +55,39 @@ yapýyý kullanýyorum. Bu IGenericDal interface'ini herbir entity class'ý için gir
 - DataAccessLayer projemde daha sonra Repository folder içine Generic class oluþturup Crud iþlemleri için az
 önce yaptýðýmýz gibi inherit edilebilecek kodlarýmýzý yazdým.
 
+Ders-11;
+- BusinesslLayer içindeki Manager sýnýflarýný teker teker oluþturduk ve impelemnt iþlemini gerçekleþtirdik.
+(tüm Entityler için) 
 
+Ders-14-15;
+- Data Transfer Object dediðimiz DTO katmanýný ekledik. Tüm entityler için Result..Dto, Create..Dto, Update..Dto, 
+Get...Dto olarak dto classlarýmýzý oluþturduk. DTO nedir diye sorarsak 
+
+DTO : Herhangi bir davarnýþý olmayan ve uygulamanýn çeþitli yerlerinde yalnýzca bir veri tüketimi ve iletimi
+için kullanýlan, veritabanýndaki herhangi bir verinin transfer nesnesidir/karþýlýðýdýr/görünümüdür.
+
+Ders-16 ;
+- AutoMapper Nuget paketlerini webpapý projemize yükledik hem automapper hemde dependency modülünü daha sonra
+Apý projemize mapping folder açarak her bir entity için mapping class mapleme methodalarýný oluþturduk.
+
+Ders-17;
+- Controller classlarýmýzý oluþturmaya baþladýk. Apýnýn içine her bir entity için contorller oluþtuduk.
+
+Ders-18;
+- Controller classlarýmýzý oluþturduk ve apýlerimizi test ettik.
+
+Ders-19;
+- Booking apý oluþturup kontrol ettik.
+
+Ders-20-23;
+- Diðer entity apýlerimizi oluþturduk controller içine ve test ettik.
+
+Ders-24;
+- Category ve product arasýnda veriler arasýnda entity framwork üzerinden bire çok iliþkisi oluþtruduk ve 
+tekrardan migration iþlemi yaptýk. 
+
+Ders-25-26;
+- Product ve category arasýndaki iliþkiye özgü metot yazdýk.
+
+Ders-27;
+- Layout hazýrlama kýsmýna geldik ve bir template indirip wwwroot içine attýk
