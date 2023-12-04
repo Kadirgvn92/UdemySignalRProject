@@ -36,7 +36,7 @@ public class CategoryController : ControllerBase
         });
         return Ok("Category has been added");
     }
-    [HttpDelete]
+    [HttpDelete("{id}")]
     public IActionResult DeleteCategory(int id)
     {
         var values = _categoryService.TGetByID(id);
@@ -44,7 +44,7 @@ public class CategoryController : ControllerBase
         return Ok("Category has been deleted");
     }
 
-    [HttpGet("GetCategory")]
+    [HttpGet("{id}")]
     public IActionResult GetCategory(int id)
     {
         var values = _categoryService.TGetByID(id);

@@ -36,13 +36,13 @@
 										<td>@item.CategoryID</td>
 										<td>@item.CategoryName</td>
 										<td>@item.Status</td>
-										<td><a href="#" class="btn btn-outline-danger">Sil</a></td>
-										<td><a href="#" class="btn btn-outline-success">Güncelle</a></td>
+										<td><a href="/Category/DeleteCategory/@item.CategoryID" class="btn btn-outline-danger">Sil</a></td>
+										<td><a href="/Category/UpdateCategory/@item.CategoryID" class="btn btn-outline-success">Güncelle</a></td>
 									</tr>
 								}
 							</tbody>
 						</table>
-						<a href="#" class="btn btn-outline-primary">Yeni Kategori Girişi</a>
+						<a href="/Category/CreateCategory/" class="btn btn-outline-primary">Yeni Kategori Girişi</a>
 					</div>
 				</div>
 			</div>
