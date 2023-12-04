@@ -36,7 +36,7 @@ public class SocialMediaController : ControllerBase
         });
         return Ok("SocialMedia has been added");
     }
-    [HttpDelete]
+    [HttpDelete("{id}")]
     public IActionResult DeleteSocialMedia(int id)
     {
         var values = _socialMediaService.TGetByID(id);
@@ -44,7 +44,7 @@ public class SocialMediaController : ControllerBase
         return Ok("SocialMedia has been deleted");
     }
 
-    [HttpGet("GetSocialMedia")]
+    [HttpGet("{id}")]
     public IActionResult GetSocialMedia(int id)
     {
         var values = _socialMediaService.TGetByID(id);

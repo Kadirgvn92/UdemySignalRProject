@@ -38,7 +38,7 @@ public class FeatureController : ControllerBase
         });
         return Ok("Feature has been added");
     }
-    [HttpDelete]
+    [HttpDelete("{id}")]
     public IActionResult DeleteFeature(int id)
     {
         var values = _featureService.TGetByID(id);
@@ -46,7 +46,7 @@ public class FeatureController : ControllerBase
         return Ok("Feature has been deleted");
     }
 
-    [HttpGet("GetFeature")]
+    [HttpGet("{id}")]
     public IActionResult GetFeature(int id)
     {
         var values = _featureService.TGetByID(id);
