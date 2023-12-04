@@ -1,7 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using SignalR.BusinessLayer.Abstract;
-using SignalR.DtoLayer.BookindDto;
+using SignalR.DtoLayer.BookingDto;
 using SignalR.EntityLayer.Entities;
 
 namespace SignalRApi.Controllers;
@@ -35,7 +34,7 @@ public class BookingController : ControllerBase
         _bookingService.TAdd(booking);
         return Ok("Your reservation is done");
     }
-    [HttpDelete]
+    [HttpDelete("{id}")]
     public IActionResult DeleteBooking(int id)
     {
         var values = _bookingService.TGetByID(id);
@@ -59,7 +58,7 @@ public class BookingController : ControllerBase
         return Ok("Your reservaiton is updated");
     }
 
-    [HttpGet("GetBooking")]
+    [HttpGet("{id}")]
     public IActionResult GetBooking(int id)
     {
         var values = _bookingService.TGetByID(id);

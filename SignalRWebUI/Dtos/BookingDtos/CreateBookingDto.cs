@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SignalR.DtoLayer.BookindDto;
-public class GetBookingDto
+namespace SignalRWebUI.Dtos.BookingDtos;
+public class CreateBookingDto
 {
-    public int BookingID { get; set; }
     public string Name { get; set; }
     public string Phone { get; set; }
     public string Mail { get; set; }

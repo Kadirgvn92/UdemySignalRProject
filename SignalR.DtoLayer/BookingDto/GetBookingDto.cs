@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SignalR.DtoLayer.BookindDto;
-public class ResultBookingDto
+﻿namespace SignalR.DtoLayer.BookingDto;
+public class GetBookingDto
 {
     public int BookingID { get; set; }
     public string Name { get; set; }

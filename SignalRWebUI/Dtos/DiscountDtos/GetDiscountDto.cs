@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SignalRWebUI.Dtos.BookingDtos;
-public  class UpdateAboutDto
+namespace SignalRWebUI.Dtos.DiscountDtos;
+public class GetDiscountDto
 {
-    public int AboutID { get; set; }
-    public string ImageUrl { get; set; }
+    public int DiscountID { get; set; }
     public string Title { get; set; }
+    public string Amount { get; set; }
     public string Description { get; set; }
+    public string ImageUrl { get; set; }
 }

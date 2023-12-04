@@ -36,7 +36,7 @@ public class DiscountController : ControllerBase
         });
         return Ok("Discount has been added");
     }
-    [HttpDelete]
+    [HttpDelete("{id}")]
     public IActionResult DeleteDiscount(int id)
     {
         var values = _discountService.TGetByID(id);
@@ -44,7 +44,7 @@ public class DiscountController : ControllerBase
         return Ok("Discount has been deleted");
     }
 
-    [HttpGet("GetDiscount")]
+    [HttpGet("{id}")]
     public IActionResult GetDiscount(int id)
     {
         var values = _discountService.TGetByID(id);

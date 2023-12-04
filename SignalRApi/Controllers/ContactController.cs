@@ -35,7 +35,7 @@ public class ContactController : ControllerBase
         });
         return Ok("Contact has been added");
     }
-    [HttpDelete]
+    [HttpDelete("{id}")]
     public IActionResult DeleteContact(int id)
     {
         var values = _contactService.TGetByID(id);
@@ -43,7 +43,7 @@ public class ContactController : ControllerBase
         return Ok("Contact has been deleted");
     }
 
-    [HttpGet("GetContact")]
+    [HttpGet("{id}")]
     public IActionResult GetContact(int id)
     {
         var values = _contactService.TGetByID(id);
