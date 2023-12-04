@@ -13,4 +13,5 @@ public class GetProductDto
     public decimal Price { get; set; }
     public string ImageUrl { get; set; }
     public bool ProductStatus { get; set; }
+	public int CategoryID { get; set; }
 }

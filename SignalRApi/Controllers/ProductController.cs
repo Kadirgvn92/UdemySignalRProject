@@ -60,7 +60,7 @@ public class ProductController : ControllerBase
         });
         return Ok("Product has been added");
     }
-    [HttpDelete]
+    [HttpDelete("{id}")]
     public IActionResult DeleteProduct(int id)
     {
         var values = _productService.TGetByID(id);
