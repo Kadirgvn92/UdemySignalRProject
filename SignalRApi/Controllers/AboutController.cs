@@ -36,7 +36,7 @@ public class AboutController : ControllerBase
         _aboutService.TAdd(about);
         return Ok("Section of About is added succesfully");
     }
-    [HttpDelete]
+    [HttpDelete("{id}")]
     public IActionResult DeleteAbout(int id)
     {
         var values = _aboutService.TGetByID(id);
@@ -56,7 +56,7 @@ public class AboutController : ControllerBase
         _aboutService.TUpdate(about);
         return Ok("Section of About is updated");
     }
-    [HttpGet("GetAbout")]
+    [HttpGet("{id}")]
     public IActionResult GetAbout(int id)
     {
         var value = _aboutService.TGetByID(id);
