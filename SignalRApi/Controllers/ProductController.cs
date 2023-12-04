@@ -57,6 +57,7 @@ public class ProductController : ControllerBase
            Price = createProductDto.Price,
            ProductName = createProductDto.ProductName,
            ProductStatus = createProductDto.ProductStatus,
+           CategoryID = createProductDto.CategoryID
         });
         return Ok("Product has been added");
     }
