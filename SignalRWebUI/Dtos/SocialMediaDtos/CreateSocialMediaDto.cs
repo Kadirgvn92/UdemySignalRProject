@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SignalR.DtoLayer.SocialMediaDto;
+﻿namespace SignalRWebUI.Dtos.SocialMediaDtos;
 public class CreateSocialMediaDto
 {
     public string Title { get; set; }
