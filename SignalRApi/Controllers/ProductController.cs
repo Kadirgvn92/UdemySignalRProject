@@ -69,7 +69,7 @@ public class ProductController : ControllerBase
         return Ok("Product has been deleted");
     }
 
-    [HttpGet("GetProduct")]
+    [HttpGet("{id}")]
     public IActionResult GetProduct(int id)
     {
         var values = _productService.TGetByID(id);
@@ -85,6 +85,8 @@ public class ProductController : ControllerBase
             Price = updateProductDto.Price,
             ProductName = updateProductDto.ProductName,
             ProductStatus = updateProductDto.ProductStatus,
+            ProductID = updateProductDto.ProductID,
+            CategoryID = updateProductDto.CategoryID    
         });
         return Ok("Product has been updated");
     }

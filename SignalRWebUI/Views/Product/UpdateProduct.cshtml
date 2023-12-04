@@ -1,6 +1,7 @@
-﻿@model CreateProductDto
+﻿@model UpdateProductDto
+
 @{
-	ViewData["Title"] = "CreateProduct";
+	ViewData["Title"] = "UpdateProduct";
 	Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
@@ -13,8 +14,9 @@
 				<form method="post">
 					<div class="card">
 						<div class="card-header">
-							<div class="card-title">Yeni Ürün Girişi</div>
+							<div class="card-title">Ürün Güncelleme Sayfası</div>
 						</div>
+						<input type="hidden" asp-for="ProductID"/>
 						<div class="card-body">
 							<div class="form-group">
 								<label for="productname">Ürün Adını Giriniz</label>
@@ -36,8 +38,8 @@
 						<div class="card-body">
 							<div class="form-group">
 								<label for="price">Ürün Kategorisini Seçiniz</label>
-								@Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.v, new 
-								{@class="form-control"})
+								@Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.v, new
+									{ @class = "form-control" })
 							</div>
 						</div>
 						<div class="card-body">
@@ -47,7 +49,7 @@
 							</div>
 						</div>
 						<div class="card-action">
-							<button class="btn btn-primary">Ürün Ekle</button>
+							<button class="btn btn-primary">Ürün Güncelle</button>
 						</div>
 					</div>
 				</form>
