@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SignalR.DtoLayer.TestimonialDto;
-public class ResultTestimonailDto
+namespace SignalRWebUI.Dtos.TestimonialDtos;
+public class GetTestimonialDto
 {
     public int TestimonialID { get; set; }
     public string Name { get; set; }

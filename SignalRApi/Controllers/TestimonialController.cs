@@ -22,7 +22,7 @@ public class TestimonialController : ControllerBase
     [HttpGet]
     public IActionResult TestimonialList()
     {
-        var value = _mapper.Map<List<ResultTestimonailDto>>(_testimonialService.TGetListAll());
+        var value = _mapper.Map<List<ResultTestimonialDto>>(_testimonialService.TGetListAll());
         return Ok(value);
     }
     [HttpPost]
@@ -38,7 +38,7 @@ public class TestimonialController : ControllerBase
         });
         return Ok("Testimonial has been added");
     }
-    [HttpDelete]
+    [HttpDelete("{id}")]
     public IActionResult DeleteTestimonial(int id)
     {
         var values = _testimonialService.TGetByID(id);
@@ -46,7 +46,7 @@ public class TestimonialController : ControllerBase
         return Ok("Testimonial has been deleted");
     }
 
-    [HttpGet("GetTestimonial")]
+    [HttpGet("{id}")]
     public IActionResult GetTestimonial(int id)
     {
         var values = _testimonialService.TGetByID(id);
@@ -61,7 +61,8 @@ public class TestimonialController : ControllerBase
             Comment = updateTestimonialDto.Comment,
             ImageUrl = updateTestimonialDto.ImageUrl,
             Status = updateTestimonialDto.Status,
-            Title = updateTestimonialDto.Title
+            Title = updateTestimonialDto.Title,
+			TestimonialID = updateTestimonialDto.TestimonialID
         });
         return Ok("Testimonial has been updated");
     }
