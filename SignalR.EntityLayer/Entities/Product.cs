@@ -9,4 +9,5 @@ public class Product
     public bool ProductStatus { get; set; }
     public int CategoryID { get; set; } //Bire çok ilişki için ekliyoruz 
     public Category Category { get; set; } //Bire çok ilişki için ekliyoruz 
+    public List<OrderDetail> OrderDetails { get; set; } 
 }
