@@ -1,14 +1,16 @@
 ﻿
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
 <h1>Index</h1>
-
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
 <script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
 
-@section Scripts
-{
+
 <div class="content">
         <div class="container-fluid">
             <div class="row">
@@ -18,12 +20,20 @@
                             $(document).ready(() => {
                                 var connection = new signalR.HubConnectionBuilder().withUrl("https://localhost:7029/SignalRHub").build();
                                 $("#connstatus").text(connection.state);
+                                
 
                                 connection.start().then(() => {
                                     $("#connstatus").text(connection.state);
+                                    connection.invoke("SendCategoryCount");
                                 }).catch((err) => {
                                     console.log(err)
                                 });
+
+                                
+
+                                connection.on("ReceiveCategoryCount", (value) => {
+                                    $("#categorycount").text(value);
+                                })
 
                             });
                         </script>
@@ -32,11 +42,9 @@
             </div>
         </div>
     </div>
-}
 <div class="row">
     <div class="col-md-8 offset-2">
-        <div class="alert alert-success">
-            Bağlantıların durumu : <strong id="connstatus"></strong>
-        </div>
+        <div class="alert alert-success"> Bağlantıların durumu : <strong id="connstatus"></strong></div>
+        <div class="alert alert-info"> Kategori Sayısı durumu : <strong id="categorycount"></strong></div>
     </div>
 </div>
