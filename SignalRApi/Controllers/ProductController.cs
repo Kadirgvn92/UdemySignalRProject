@@ -34,8 +34,20 @@ public class ProductController : ControllerBase
         return Ok(_productService.TProductCount());
     }
 
+	[HttpGet("ProductCountByHamburger")]
+	public IActionResult ProductCountByHamburger()
+	{
+		return Ok(_productService.TProductCountByCategoryNameHamburger());
+	}
 
-    [HttpGet("ProductListWithCategory")]
+	[HttpGet("ProductCountByDrink")]
+	public IActionResult ProductCountByDrink()
+	{
+		return Ok(_productService.TProductCountByCategoryNameDrink());
+	}
+
+
+	[HttpGet("ProductListWithCategory")]
     public IActionResult ProductListWithCategory()
     {
         var context = new SignalRContext();

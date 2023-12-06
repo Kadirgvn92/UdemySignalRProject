@@ -11,4 +11,8 @@ public interface IProductService : IGenericService<Product>
     List<Product> TGetProductsWithCategories();
 
     public int TProductCount();
+
+    public int TProductCountByCategoryNameDrink();
+
+    public int TProductCountByCategoryNameHamburger();
 }
