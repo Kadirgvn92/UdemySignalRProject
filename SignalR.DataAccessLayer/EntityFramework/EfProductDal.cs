@@ -17,4 +17,10 @@ public class EfProductDal : GenericRepository<Product>, IProductDal
         var values = context.Products.Include(x => x.Category).ToList();
         return values;
     }
+
+	public int ProductCount()
+	{
+		using var context = new SignalRContext();   
+        return context.Products.Count();
+	}
 }

@@ -17,12 +17,22 @@ public class CategoryManager : ICategoryService
         _categoryDal = categoryDal;
     }
 
-    public void TAdd(Category entity)
+	public int TActiveCategoryCount()
+	{
+		return _categoryDal.ActiveCategoryCount();
+	}
+
+	public void TAdd(Category entity)
     {
         _categoryDal.Add(entity);
     }
 
-    public void TDelete(Category entity)
+	public int TCategoryCount()
+	{
+		return _categoryDal.CategoryCount();
+	}
+
+	public void TDelete(Category entity)
     {
         _categoryDal.Delete(entity);
     }
@@ -37,7 +47,12 @@ public class CategoryManager : ICategoryService
         return _categoryDal.GetListAll();
     }
 
-    public void TUpdate(Category entity)
+	public int TPassiveCategoryCount()
+	{
+		return _categoryDal.PassiveCategoryCount();
+	}
+
+	public void TUpdate(Category entity)
     {
        _categoryDal.Update(entity);
     }
