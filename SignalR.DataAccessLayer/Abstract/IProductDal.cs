@@ -12,5 +12,8 @@ public interface IProductDal : IGenericDal<Product>
     public int ProductCount();
     public int ProductCountByCategoryNameHamburger();
     public int ProductCountByCategoryNameDrink();
+    public decimal ProductPriceAvg();
+    public string ProductNameByMaxPrice();
+    public string ProductNameByMinPrice();
 
 }

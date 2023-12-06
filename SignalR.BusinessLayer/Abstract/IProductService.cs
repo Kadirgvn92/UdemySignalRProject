@@ -15,4 +15,7 @@ public interface IProductService : IGenericService<Product>
     public int TProductCountByCategoryNameDrink();
 
     public int TProductCountByCategoryNameHamburger();
+    public decimal TProductPriceAvg();
+	public string TProductNameByMaxPrice();
+	public string TProductNameByMinPrice();
 }
