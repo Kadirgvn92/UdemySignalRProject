@@ -60,6 +60,11 @@ public class ProductController : ControllerBase
 	{
 		return Ok(_productService.TProductNameByMinPrice());
 	}
+	[HttpGet("ProductAvgPriceByHamburger")]
+	public IActionResult ProductAvgPriceByHamburger()
+	{
+		return Ok(_productService.TProductAvgPriceByHamburger());
+	}
 
 
 	[HttpGet("ProductListWithCategory")]

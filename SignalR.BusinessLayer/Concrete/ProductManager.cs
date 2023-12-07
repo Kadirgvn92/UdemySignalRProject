@@ -76,4 +76,9 @@ public class ProductManager : IProductService
     {
         _productDal.Update(entity);
     }
+
+	public decimal TProductAvgPriceByHamburger()
+	{
+		return _productDal.ProductAvgPriceByHamburger();
+	}
 }
