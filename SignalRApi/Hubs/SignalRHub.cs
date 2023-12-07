@@ -8,12 +8,15 @@ public class SignalRHub : Hub
 {
     private readonly ICategoryService _categoryService;
 	private readonly IProductService _productService;
+	private readonly IOrderService _orderService;
 
 
-	public SignalRHub(ICategoryService categoryService, IProductService productService)
+	public SignalRHub(ICategoryService categoryService, IProductService productService, 
+		IOrderService orderService)
 	{
 		_categoryService = categoryService;
 		_productService = productService;
+		_orderService = orderService;
 	}
 
 	public async Task SendStatistic()
@@ -41,6 +44,21 @@ public class SignalRHub : Hub
 
 		var values8 = _productService.TProductNameByMaxPrice();
 		await Clients.All.SendAsync("ReceiveProductNameByMaxPrice", values8);
+
+		var values9 = _productService.TProductNameByMinPrice();
+		await Clients.All.SendAsync("ReceiveProductNameByMinPrice", values9);
+
+		var values10 = _productService.TProductAvgPriceByHamburger();
+		await Clients.All.SendAsync("ReceiveProductAvgPriceByHamburger", values10);
+
+		var values11 = _orderService.TTotalOrderCount();
+		await Clients.All.SendAsync("ReceiveTotalOrderCount", values11);
+
+		var values12 = _orderService.TActiveOrderCount();
+		await Clients.All.SendAsync("ReceiveActiveOrderCount", values12);
+
+		var values13 = _orderService.TTotalOrderCount();
+		await Clients.All.SendAsync("ReceiveTotalOrderCount", values13);
 	}
 
 
