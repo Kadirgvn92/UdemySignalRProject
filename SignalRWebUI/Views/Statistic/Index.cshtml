@@ -77,6 +77,21 @@
 					$("#activeordercount").text(value12);
 				});
 
+				connection.on("ReceiveLastOrderPrice", (value13) => {
+					$("#lastorderprice").text(value13);
+				});
+
+				connection.on("ReceiveTotalMoneyCaseAmount", (value14) => {
+					$("#totalmoneycaseamount").text(value14);
+				});
+
+				// connection.on("ReceiveTodayTotalPrice", (value15) => {
+				// 	$("#todaytotalprice").text(value15);
+				// });
+
+				connection.on("ReceiveMenuTableCount", (value16) => {
+					$("#menutablecount").text(value16);
+				});
 				
 			});
 		</script>
@@ -327,8 +342,8 @@
 							</div>
 							<div class="col-7 d-flex align-items-center">
 								<div class="numbers">
-									<p class="card-category">Visitors</p>
-									<h4 class="card-title">1,294</h4>
+									<p class="card-category">Son Sipariş Tutarı</p>
+									<h4 class="card-title" id="lastorderprice"></h4>
 								</div>
 							</div>
 						</div>
@@ -346,8 +361,8 @@
 							</div>
 							<div class="col-7 d-flex align-items-center">
 								<div class="numbers">
-									<p class="card-category">Sales</p>
-									<h4 class="card-title">$ 1,345</h4>
+									<p class="card-category">Kasadaki Tutar</p>
+									<h4 class="card-title" id="totalmoneycaseamount"></h4>
 								</div>
 							</div>
 						</div>
@@ -365,8 +380,8 @@
 							</div>
 							<div class="col-7 d-flex align-items-center">
 								<div class="numbers">
-									<p class="card-category">Subscribers</p>
-									<h4 class="card-title">1303</h4>
+									<p class="card-category">Bugünkü Kazanç</p>
+									<h4 class="card-title" id="todaytotalprice">12.00 ₺</h4>
 								</div>
 							</div>
 						</div>
@@ -384,8 +399,8 @@
 							</div>
 							<div class="col-7 d-flex align-items-center">
 								<div class="numbers">
-									<p class="card-category">Order</p>
-									<h4 class="card-title">576</h4>
+									<p class="card-category">Masa Sayısı</p>
+									<h4 class="card-title" id="menutablecount"></h4>
 								</div>
 							</div>
 						</div>
