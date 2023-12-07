@@ -22,22 +22,13 @@
 					$("#connstatus").text(connection.state);
 					setInterval(() => {
 						connection.invoke("SendCategoryCount");
-					}, 1000);
-
-				}).catch((err) => {
-					console.log(err)
-				});
-
-				connection.start().then(() => {
-					$("#connstatus").text(connection.state);
-					setInterval(() => {
 						connection.invoke("SendProductCount");
+						connection.invoke("SendActivePassiveCategoryCount");
 					}, 1000);
 
 				}).catch((err) => {
 					console.log(err)
 				});
-
 
 
 				connection.on("ReceiveCategoryCount", (value) => {
@@ -46,6 +37,14 @@
 
 				connection.on("ReceiveProductCount", (value2) => {
 					$("#productcount").text(value2);
+				});
+
+				connection.on("ReceiveActiveCategoryCount", (value3) => {
+					$("#activecategorycount").text(value3);
+				});
+
+				connection.on("ReceivePassiveCategoryCount", (value4) => {
+					$("#passivecategorycount").text(value4);
 				});
 			});
 		</script>
@@ -100,8 +99,8 @@
 							</div>
 							<div class="col-7 d-flex align-items-center">
 								<div class="numbers">
-									<p class="card-category">Subscribers</p>
-									<h4 class="card-title">1303</h4>
+									<p class="card-category">Aktif Kategori</p>
+									<h4 class="card-title" id="activecategorycount"></h4>
 								</div>
 							</div>
 						</div>
@@ -119,8 +118,8 @@
 							</div>
 							<div class="col-7 d-flex align-items-center">
 								<div class="numbers">
-									<p class="card-category">Order</p>
-									<h4 class="card-title">576</h4>
+									<p class="card-category">Pasif Kategori</p>
+									<h4 class="card-title" id="passivecategorycount" ></h4>
 								</div>
 							</div>
 						</div>

@@ -28,5 +28,13 @@ public class SignalRHub : Hub
 		await Clients.All.SendAsync("ReceiveProductCount", values2);
 	}
 
+	public async Task SendActivePassiveCategoryCount()
+	{
+		var values3 = _categoryService.TActiveCategoryCount();
+		var values4 = _categoryService.TPassiveCategoryCount();
+		await Clients.All.SendAsync("ReceiveActiveCategoryCount", values3);
+		await Clients.All.SendAsync("ReceivePassiveCategoryCount", values4);
+	}
+
 
 }
