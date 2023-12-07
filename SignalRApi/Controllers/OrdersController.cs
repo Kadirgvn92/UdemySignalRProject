@@ -27,6 +27,12 @@ public class OrdersController : ControllerBase
 		return Ok(_orderService.TActiveOrderCount());
 	}
 
+	[HttpGet("TodayTotalPrice")]
+	public IActionResult TodayTotalPrice()
+	{
+		return Ok(_orderService.TTodayTotalPrice());
+	}
+
 
 	[HttpGet("LastOrderPrice")]
 	public IActionResult LastOrderPrice()
