@@ -21,9 +21,7 @@
 				connection.start().then(() => {
 					$("#connstatus").text(connection.state);
 					setInterval(() => {
-						connection.invoke("SendCategoryCount");
-						connection.invoke("SendProductCount");
-						connection.invoke("SendActivePassiveCategoryCount");
+						connection.invoke("SendStatistic");
 					}, 1000);
 
 				}).catch((err) => {
@@ -45,6 +43,22 @@
 
 				connection.on("ReceivePassiveCategoryCount", (value4) => {
 					$("#passivecategorycount").text(value4);
+				});
+
+				connection.on("ReceiveProductCountByCategoryNameHamburger", (value5) => {
+					$("#productcountbycategorynamehamburger").text(value5);
+				});
+
+				connection.on("ReceiveProductCountByCategoryNameDrink", (value6) => {
+					$("#productcountbycategorynamedrink").text(value6);
+				});
+
+				connection.on("ReceiveProductPriceAvg", (value7) => {
+					$("#productpriceavg").text(value7);
+				});
+
+				connection.on("ReceiveProductNameByMaxPrice", (value8) => {
+					$("#productnamebymaxprice").text(value8);
 				});
 			});
 		</script>
@@ -94,7 +108,7 @@
 						<div class="row">
 							<div class="col-5">
 								<div class="icon-big text-center">
-									<i class="la la-newspaper-o"></i>
+									<i class="la la-star"></i>
 								</div>
 							</div>
 							<div class="col-7 d-flex align-items-center">
@@ -113,7 +127,7 @@
 						<div class="row">
 							<div class="col-5">
 								<div class="icon-big text-center">
-									<i class="la la-check-circle"></i>
+									<i class="la la-close"></i>
 								</div>
 							</div>
 							<div class="col-7 d-flex align-items-center">
@@ -134,13 +148,13 @@
 						<div class="row">
 							<div class="col-5">
 								<div class="icon-big text-center">
-									<i class="la la-users"></i>
+									<i class="la la-bomb"></i>
 								</div>
 							</div>
 							<div class="col-7 d-flex align-items-center">
 								<div class="numbers">
-									<p class="card-category">Visitors</p>
-									<h4 class="card-title">1,294</h4>
+									<p class="card-category">Hamburger</p>
+									<h4 class="card-title" id="productcountbycategorynamehamburger"></h4>
 								</div>
 							</div>
 						</div>
@@ -153,13 +167,13 @@
 						<div class="row">
 							<div class="col-5">
 								<div class="icon-big text-center">
-									<i class="la la-bar-chart"></i>
+									<i class="la la-glass"></i>
 								</div>
 							</div>
 							<div class="col-7 d-flex align-items-center">
 								<div class="numbers">
-									<p class="card-category">Sales</p>
-									<h4 class="card-title">$ 1,345</h4>
+									<p class="card-category">İçecek Kategorisi</p>
+									<h4 class="card-title" id="productcountbycategorynamedrink"></h4>
 								</div>
 							</div>
 						</div>
@@ -172,13 +186,13 @@
 						<div class="row">
 							<div class="col-5">
 								<div class="icon-big text-center">
-									<i class="la la-newspaper-o"></i>
+									<i class="la la-money"></i>
 								</div>
 							</div>
 							<div class="col-7 d-flex align-items-center">
 								<div class="numbers">
-									<p class="card-category">Subscribers</p>
-									<h4 class="card-title">1303</h4>
+									<p class="card-category">Ort. Ürün Fiyatı</p>
+									<h4 class="card-title" id="productpriceavg"></h4>
 								</div>
 							</div>
 						</div>
@@ -191,13 +205,13 @@
 						<div class="row">
 							<div class="col-5">
 								<div class="icon-big text-center">
-									<i class="la la-check-circle"></i>
+									<i class="la la-dollar"></i>
 								</div>
 							</div>
 							<div class="col-7 d-flex align-items-center">
 								<div class="numbers">
-									<p class="card-category">Order</p>
-									<h4 class="card-title">576</h4>
+									<p class="card-category">En Pahalı Ürün</p>
+									<h4 class="card-title" id="productnamebymaxprice"></h4>
 								</div>
 							</div>
 						</div>
