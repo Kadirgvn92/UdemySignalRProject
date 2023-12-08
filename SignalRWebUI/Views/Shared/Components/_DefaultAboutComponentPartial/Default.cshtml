@@ -1,5 +1,5 @@
 ﻿
-
+@model List<ResultAboutDto>
 
 <section class="about_section layout_padding">
     <div class="container  ">
@@ -9,24 +9,25 @@
                     <img src="~/feane-1.0.0/images/about-img.png" alt="">
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="detail-box">
-                    <div class="heading_container">
-                        <h2>
-                            We Are BombBurger
-                        </h2>
+            @foreach(var item in Model)
+            {
+
+                <div class="col-md-6">
+                    <div class="detail-box">
+                        <div class="heading_container">
+                            <h2>
+                               @item.Title
+                            </h2>
+                        </div>
+                        <p>
+                            @item.Description
+                        </p>
+                        <a href="/About/Index/">
+                            Daha Fazlası..
+                        </a>
                     </div>
-                    <p>
-                        There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-                        in some form, by injected humour, or randomised words which don't look even slightly believable. If you
-                        are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
-                        the middle of text. All
-                    </p>
-                    <a href="">
-                        Daha Fazlası..
-                    </a>
                 </div>
-            </div>
+            }
         </div>
     </div>
 </section>
