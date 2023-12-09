@@ -87,11 +87,16 @@
                 data: { item:id },
                 contentType: 'json',
                 success: function () {
-                    alert('Tıkladığınız Ürün ID Değeri: ' + id);
+                    Swal.fire({
+                        title: "Tebrikler",
+                        text: "Tıkladığınız Ürün ID Değeri: " + id,
+                        icon: "success"
+                    });
                 }
             });
         }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>
