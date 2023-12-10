@@ -5,11 +5,11 @@ using SignalR.BusinessLayer.Abstract;
 namespace SignalRApi.Controllers;
 [Route("api/[controller]")]
 [ApiController]
-public class BasketsController : ControllerBase
+public class BasketController : ControllerBase
 {
     private readonly IBasketService _basketService;
 
-    public BasketsController(IBasketService basketService)
+    public BasketController(IBasketService basketService)
     {
         _basketService = basketService;
     }
