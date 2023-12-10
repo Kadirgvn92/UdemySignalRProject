@@ -8,4 +8,5 @@ public class ResultBasketDto
     public decimal TotalPrice { get; set; }
     public int ProductID { get; set; }
     public int MenuTableID { get; set; }
+    public string ProductName { get; set; }
 }
