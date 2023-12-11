@@ -3,6 +3,10 @@
 @{
     Layout = null;
     int count = 0;
+    decimal basketTotalPrice=0;
+    decimal tax = 0;
+    decimal basketTotalPriceWithTax = 0;
+
 }
 
 <!DOCTYPE html>
@@ -43,9 +47,9 @@
                     </thead>
                     @foreach (var item in Model)
                     {
-                       @*  basketTotalPrice = Model.Sum(x => x.Price);
+                        basketTotalPrice = Model.Sum(x => x.Price);
                         tax = basketTotalPrice / 100 * 10;
-                        basketTotalPriceWithTax = basketTotalPrice + tax; *@
+                        basketTotalPriceWithTax = basketTotalPrice + tax;
                         count++;
                         <tbody class="align-middle">
                             <tr>
@@ -75,18 +79,18 @@
                     <div id="container" class="border-bottom pb-2 pt-2 m-2">
                         <div class="d-flex justify-content-between">
                             <h6>Toplam Tutar</h6>
-                            <h6><span id="totalprice">200 ₺</span></h6>
+                            <h6><span id="totalprice">@basketTotalPrice ₺</span></h6>
                         </div>
                         <div class="d-flex justify-content-between">
                             <h6 class="font-weight-medium">KDV Oranı</h6>
-                            <h6 id="kdv" class="font-weight-medium">20 ₺</h6>
+                            <h6 id="kdv" class="font-weight-medium">@tax ₺</h6>
                         </div>
                         <br />
                     </div>
                     <div class="pt-2 m-2">
                         <div class="d-flex justify-content-between mt-2">
                             <h5>Toplam Tutar</h5>
-                            <h5><span id="totalpricewithkdv">220 ₺</span></h5>
+                            <h5><span id="totalpricewithkdv">@basketTotalPriceWithTax ₺</span></h5>
                         </div>
                         <br />
                         <button id="btnchecked" class="btn btn-block btn-lg btn-primary font-weight-bold my-3 ">Siparişi Tamamla</button>
