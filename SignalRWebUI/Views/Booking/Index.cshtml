@@ -6,9 +6,39 @@
 	int count = 0;
 }
 
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
 
 <div class="content">
 	<div class="container-fluid">
+		<script type="text/javascript">
+			$(document).ready(() => {
+				var connection = new signalR.HubConnectionBuilder().withUrl("https://localhost:7029/SignalRHub").build();
+				$("#connstatus").text(connection.state);
+
+
+				connection.start().then(() => {
+					$("#connstatus").text(connection.state);
+					setInterval(() => {
+						connection.invoke("GetBookingList");
+					}, 5000);
+
+				}).catch((err) => {
+					console.log(err)
+				});
+
+
+				connection.on("ReceiveBookingList", (value) => {
+					console.log(value);
+					$("#bookingList").empty();
+					value.forEach((item, index) => {
+						$("#bookingList").append(`<li class="list-group-item">${item.name}</li `)
+					});
+				}); 
+			});
+		</script>
 		<h4 class="page-title">Rezervasyon İşlemleri</h4>
 		<div class="row">
 			<div class="col-md-12">
@@ -49,6 +79,9 @@
 							</tbody>
 						</table>
 						<a href="/Booking/CreateBooking/" class="btn btn-outline-primary">Yeni Rezervasyon Girişi</a>
+						<div class="col-md-8">
+							<ul class="list-group" id="bookingList"></ul>
+						</div>
 					</div>
 				</div>
 			</div>
