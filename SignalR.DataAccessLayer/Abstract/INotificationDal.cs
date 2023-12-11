@@ -8,4 +8,5 @@ using System.Threading.Tasks;
 namespace SignalR.DataAccessLayer.Abstract;
 public interface INotificationDal : IGenericDal<Notification>
 {
+	int NotificationCountByStatusFalse();
 }

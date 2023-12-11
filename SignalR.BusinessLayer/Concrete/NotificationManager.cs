@@ -1,11 +1,6 @@
 ﻿using SignalR.BusinessLayer.Abstract;
 using SignalR.DataAccessLayer.Abstract;
 using SignalR.EntityLayer.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SignalR.BusinessLayer.Concrete;
 public class NotificationManager : INotificationService
@@ -35,6 +30,11 @@ public class NotificationManager : INotificationService
 	public List<Notification> TGetListAll()
 	{
 		return _notificationDal.GetListAll();
+	}
+
+	public int TNotificationCountByStatusFalse()
+	{
+		return _notificationDal.NotificationCountByStatusFalse();
 	}
 
 	public void TUpdate(Notification entity)

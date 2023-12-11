@@ -8,5 +8,6 @@ using System.Threading.Tasks;
 namespace SignalR.BusinessLayer.Abstract;
 public interface INotificationService :IGenericService<Notification>
 {
+	public int TNotificationCountByStatusFalse();
 
 }
