@@ -96,6 +96,9 @@ public class SignalRHub : Hub
 	{
 		var value = _notificationService.TNotificationCountByStatusFalse();
 		await Clients.All.SendAsync("ReceiveNotificationCountByFalse", value);
+
+		var notificationListByFalse = _notificationService.TGetAllNotificationByFalse();
+		await Clients.All.SendAsync("ReceiveAllNotificationCountByFalse", notificationListByFalse);
 	}
 
 
