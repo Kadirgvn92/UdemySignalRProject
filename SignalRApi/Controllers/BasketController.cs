@@ -59,4 +59,13 @@ public class BasketController : ControllerBase
         return Ok();
     }
 
+    [HttpDelete("{id}")]
+    public IActionResult DeleteBasket(int id)
+    {
+       var values = _basketService.TGetByID(id);
+        _basketService.TDelete(values);
+        return Ok("Sepetteki Seçilen Ürün silindi");
+
+    }
+
 }
