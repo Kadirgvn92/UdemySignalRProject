@@ -23,5 +23,10 @@ public class NotificationController : ControllerBase
 	{
 		return Ok(_notificationService.TNotificationCountByStatusFalse());
 	}
+	[HttpGet("GetAllNotificationByFalse")]
+	public IActionResult GetAllNotificationByFalse()
+	{
+		return Ok(_notificationService.TGetAllNotificationByFalse());
+	}
 
 }
