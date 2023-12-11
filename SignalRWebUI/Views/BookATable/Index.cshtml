@@ -1,4 +1,5 @@
-﻿
+﻿@model CreateBookingDto
+
 @{
     Layout = null;
 }
@@ -16,47 +17,53 @@
     <div class="container">
       <div class="heading_container">
         <h2>
-          Book A Table
+          Rezervasyon Oluşturun
         </h2>
       </div>
       <div class="row">
         <div class="col-md-6">
           <div class="form_container">
-            <form action="">
+            <form method="post">
               <div>
-                <input type="text" class="form-control" placeholder="Your Name" />
+                <input type="text" class="form-control" placeholder="Adınız Soyadınız" asp-for="Name"/>
               </div>
               <div>
-                <input type="text" class="form-control" placeholder="Phone Number" />
+                <input type="text" class="form-control" placeholder="Telefon Numaranız" asp-for="Phone"/>
               </div>
               <div>
-                <input type="email" class="form-control" placeholder="Your Email" />
+                <input type="email" class="form-control" placeholder="Mail Adresiniz" asp-for="Mail"/>
               </div>
               <div>
-                <select class="form-control nice-select wide">
+                <select asp-for="PersonelCount" class="form-control nice-select wide">
                   <option value="" disabled selected>
-                    How many persons?
+                    Kaç Kişisiniz?
                   </option>
-                  <option value="">
+                  <option value="1">
+                    1
+                  </option>
+                  <option value="2">
                     2
                   </option>
-                  <option value="">
+                  <option value="3">
                     3
                   </option>
-                  <option value="">
+                  <option value="4">
                     4
                   </option>
-                  <option value="">
+                  <option value="5">
                     5
+                  </option>
+                  <option value="6">
+                    6++
                   </option>
                 </select>
               </div>
               <div>
-                <input type="date" class="form-control">
+                <input type="date" class="form-control" asp-for="Date">
               </div>
               <div class="btn_box">
                 <button>
-                  Book Now
+                  Yerinizi Ayırtın..
                 </button>
               </div>
             </form>
