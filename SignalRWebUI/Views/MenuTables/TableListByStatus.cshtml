@@ -33,23 +33,36 @@
 
 
 				connection.on("ReceiveMenuTableStatus", (value) => {
+					var color = "";
+					var status = "";
+					var icon = "";
 					console.log(value);
 					let tablehtml = `<div class="row">`;
 					$.each(value, (index, item) => {
+						if (item.status == true) {
+							color = "card card-stats card-success";
+							status = "Masa Dolu";
+							icon = "la la-check";
+						} else {
+							color = "card card-stats card-danger";
+							status = "Masa Boş";
+							icon = "la la-close";
+
+						}
 						tablehtml += `
 						<div class="col-md-3">
-							<div class="card card-stats card-danger">
-								<div class="card-body ">
+							<div class="${color}">
+								<div class="card-body">
 									<div class="row">
 										<div class="col-5">
 											<div class="icon-big text-center">
-												<i class="la la-bomb"></i>
+												<i class="${icon}"></i>
 											</div>
 										</div>
 										<div class="col-7 d-flex align-items-center">
 											<div class="numbers">
 												<p class="card-category">${item.name}</p>
-												<h4 class="card-title" >${item.status}</h4>
+												<h4 class="card-title" >${status}</h4>
 											</div>
 										</div>
 									</div>
