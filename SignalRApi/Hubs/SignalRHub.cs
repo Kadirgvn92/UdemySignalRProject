@@ -100,6 +100,11 @@ public class SignalRHub : Hub
 		var notificationListByFalse = _notificationService.TGetAllNotificationByFalse();
 		await Clients.All.SendAsync("ReceiveAllNotificationCountByFalse", notificationListByFalse);
 	}
+	public async Task GetMenuTableStatus()
+	{
+		var value = _menuTableService.TGetListAll();
+		await Clients.All.SendAsync("ReceiveMenuTableStatus", value);
+	}
 
 
 }
