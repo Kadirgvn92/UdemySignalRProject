@@ -26,4 +26,19 @@ public class EfNotificationDal : GenericRepository<Notification>, INotificationD
 		using var context = new SignalRContext();
 		return context.Notifications.Where(x => x.Status == false).Count(); 
 	}
+	public void NotificationStatusChangeToTrue(int id)
+	{
+		using var context = new SignalRContext();
+		var value = context.Notifications.Find(id);
+		value.Status = true;
+		context.SaveChanges();
+	}
+	public void NotificationStatusChangeToFalse(int id)
+	{
+		using var context = new SignalRContext();
+		var value = context.Notifications.Find(id);
+		value.Status = false;
+		context.SaveChanges();
+	}
+
 }
