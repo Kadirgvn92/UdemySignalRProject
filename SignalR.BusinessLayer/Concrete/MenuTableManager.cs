@@ -19,22 +19,22 @@ public class MenuTableManager : IMenuTableService
 
 	public void TAdd(MenuTable entity)
 	{
-		throw new NotImplementedException();
+		_menuTableDal.Add(entity);	
 	}
 
 	public void TDelete(MenuTable entity)
 	{
-		throw new NotImplementedException();
+		_menuTableDal.Delete(entity);
 	}
 
 	public MenuTable TGetByID(int id)
 	{
-		throw new NotImplementedException();
+		return _menuTableDal.GetByID(id);
 	}
 
 	public List<MenuTable> TGetListAll()
 	{
-		throw new NotImplementedException();
+		return _menuTableDal.GetListAll();
 	}
 
 	public int TMenuTableCount()
@@ -44,6 +44,6 @@ public class MenuTableManager : IMenuTableService
 
 	public void TUpdate(MenuTable entity)
 	{
-		throw new NotImplementedException();
+		_menuTableDal.Update(entity);
 	}
 }
