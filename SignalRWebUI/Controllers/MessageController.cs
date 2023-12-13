@@ -7,4 +7,8 @@ public class MessageController : Controller
 	{
 		return View();
 	}
+	public IActionResult ClientUserCount()
+	{
+		return View();
+	}
 }
