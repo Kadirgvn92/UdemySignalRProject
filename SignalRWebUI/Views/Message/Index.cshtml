@@ -1,6 +1,43 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
-<h5>Merhaba</h5>
+<!DOCTYPE html>
+<html>
+
+@await Component.InvokeAsync("_UILayoutHeadComponentPartial")
+
+<body class="sub_page">
+
+
+    @await Component.InvokeAsync("_MenuNavbarComponentPartial")
+
+    <section class="food_section layout_padding">
+        <div class="container">
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col-12">
+                        <h3 class="text-center mb-4 font-weight-bold">BombBurger Anlık Mesajlaşma</h3>
+                    </div>
+                </div>
+                <div class="row p-1">
+                    <div class="col-2">Kullanıcı Adınız :</div>
+                    <div class="col-5"><input type="text" id="user" class="form-control"/></div>
+                </div>
+                <div class="row p-1">
+                    <div class="col-2">Mesajınız :</div>
+                    <div class="col-5"><input type="text" id="messageInput" class="form-control" /></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    @await Component.InvokeAsync("_UILayoutFooterComponentPartial")
+
+    @await Component.InvokeAsync("_UILayoutScriptComponentPartial")
+
+</body>
+
+</html>
