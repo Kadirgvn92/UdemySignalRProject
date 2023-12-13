@@ -32,4 +32,8 @@
     <ProjectReference Include="..\SignalR.EntityLayer\SignalR.EntityLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Dtos\NewFolder\" />
+  </ItemGroup>
+
 </Project>
