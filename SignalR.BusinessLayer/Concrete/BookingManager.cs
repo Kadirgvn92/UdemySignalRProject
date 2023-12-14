@@ -12,7 +12,17 @@ public class BookingManager : IBookingService
         _bookingDal = bookingDal;
     }
 
-    public void TAdd(Booking entity)
+	public void BookingStatusApproved(int id)
+	{
+		_bookingDal.BookingStatusApproved(id);
+	}
+
+	public void BookingStatusCanceled(int id)
+	{
+		_bookingDal.BookingStatusCanceled(id);
+	}
+
+	public void TAdd(Booking entity)
     {
         _bookingDal.Add(entity);
     }
@@ -22,7 +32,12 @@ public class BookingManager : IBookingService
        _bookingDal.Delete(entity);
     }
 
-    public Booking TGetByID(int id)
+	public List<Booking> TGetBookingStatusApproved()
+	{
+		return _bookingDal.GetBookingStatusApproved();
+	}
+
+	public Booking TGetByID(int id)
     {
         return _bookingDal.GetByID(id);
     }

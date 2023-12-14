@@ -11,6 +11,7 @@
 <script src="~/js/site.js" asp-append-version="true"></script>
 <script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
 
+
 <div class="content">
 	<div class="container-fluid">
 		<script type="text/javascript">
@@ -55,10 +56,10 @@
 							<td>${item.phone}</td>
 							<td>${item.personelCount}</td>
 							<td>${item.description}</td>
-							<td><a href="/Booking/DeleteBooking/${item.bookingID}" class="btn btn-outline-danger">Sil</a></td>
+							<td><a href="/Booking/DeleteBooking/${item.bookingID}" class="btn btn-outline-danger" >Sil</a></td>
 							<td><a href="/Booking/UpdateBooking/${item.bookingID}" class="btn btn-outline-success">Güncelle</a></td>
-							<td><a href="/Booking/UpdateBooking/${item.bookingID}" class="btn btn-outline-info">Onayla</a></td>
-							<td><a href="/Booking/UpdateBooking/${item.bookingID}" class="btn btn-outline-dark">İptal Et</a></td>
+							<td><a href="/Booking/BookingStatusApproved/${item.bookingID}" class="btn btn-outline-info">Onayla</a></td>
+							<td><a href="/Booking/BookingStatusCanceled/${item.bookingID}" class="btn btn-outline-dark">İptal Et</a></td>
 						</tr>`
 					});
 					tablehtml += "</tbody></table>";

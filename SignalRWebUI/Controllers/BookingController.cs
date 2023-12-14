@@ -34,6 +34,7 @@ public class BookingController : Controller
 	[HttpPost]
 	public async Task<IActionResult> CreateBooking (CreateBookingDto createBookingDto)
 	{
+		createBookingDto.Description = "Rezervasyon Alındı";
 		var client = _httpClientFactory.CreateClient();
 		var jsonData = JsonConvert.SerializeObject(createBookingDto);
 		StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
@@ -83,4 +84,34 @@ public class BookingController : Controller
 		}
 		return View();
 	}
+	public async Task<IActionResult> BookingStatusApproved(int id)
+	{
+		var client = _httpClientFactory.CreateClient();
+		await client.GetAsync($"https://localhost:7029/api/Booking/BookingStatusApproved/{id}");
+		return RedirectToAction("Index");
+	}
+	public async Task<IActionResult> BookingStatusCanceled(int id)
+	{
+		var client = _httpClientFactory.CreateClient();
+		await client.GetAsync($"https://localhost:7029/api/Booking/BookingStatusCanceled/{id}");
+		return RedirectToAction("Index");
+	}
+	public async Task<IActionResult> GetBookingStatusApproved(ResultBookingStatusApproved resultBookingStatusApproved)
+	{
+		
+		var client = _httpClientFactory.CreateClient();
+		var responseMessage = await client.GetAsync("https://localhost:7029/api/Product/GetBookingStatusApproved");
+		if (responseMessage.IsSuccessStatusCode)
+		{
+			var jsonData = await responseMessage.Content.ReadAsStringAsync();
+			var values = JsonConvert.DeserializeObject<List<ResultBookingStatusApproved>>(jsonData);
+			return View(values);
+		}
+		return View();
+	}
+
+
+
+
+
 }

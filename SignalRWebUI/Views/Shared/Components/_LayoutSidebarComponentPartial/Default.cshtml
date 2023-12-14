@@ -64,11 +64,39 @@
 					
 				</a>
 			</li>
+
 			<li class="nav-item">
-				<a href="/Booking/Index/">
-					<i class="la la-bell"></i>
-					<p>Rezervasyonlar</p>
+				<a data-toggle="collapse" href="#collapseExampleOne" aria-expanded="true">
+					<i class="la la-keyboard-o"></i>
+					<p>	Rezervasyonlar</p>
+					<span class="caret"></span>
 				</a>
+				<div class="clearfix"></div>
+
+				<div class="collapse in" id="collapseExampleOne" aria-expanded="true" style="">
+					<ul class="nav">
+						<li>
+							<a href="/Booking/Index/">
+								<span class="link-collapse">Tüm Rezervasyon Listesi</span>
+							</a>
+						</li>
+						<li>
+							<a href="/Booking/GetBookingStatusApproved">
+								<span class="link-collapse">Onaylanan Rezervasyonlar</span>
+							</a>
+						</li>
+						<li>
+							<a href="#edit">
+								<span class="link-collapse">Alınan Rezervasyonlar</span>
+							</a>
+						</li>
+						<li>
+							<a href="#settings">
+								<span class="link-collapse">İptal edilen Rezervasyonlar</span>
+							</a>
+						</li>
+					</ul>
+				</div>
 			</li>
 			<li class="nav-item">
 				<a href="/About/Index">
