@@ -109,6 +109,34 @@ public class BookingController : Controller
 		}
 		return View();
 	}
+	public async Task<IActionResult> GetBookingStatusCanceled(ResultBookingStatusApproved resultBookingStatusApproved)
+	{
+
+		var client = _httpClientFactory.CreateClient();
+		var responseMessage = await client.GetAsync("https://localhost:7029/api/Product/GetBookingStatusCanceled");
+		if (responseMessage.IsSuccessStatusCode)
+		{
+			var jsonData = await responseMessage.Content.ReadAsStringAsync();
+			var values = JsonConvert.DeserializeObject<List<ResultBookingStatusApproved>>(jsonData);
+			return View(values);
+		}
+		return View();
+	}
+	public async Task<IActionResult> GetBookingStatusReceived(ResultBookingStatusApproved resultBookingStatusApproved)
+	{
+
+		var client = _httpClientFactory.CreateClient();
+		var responseMessage = await client.GetAsync("https://localhost:7029/api/Product/GetBookingStatusReceived");
+		if (responseMessage.IsSuccessStatusCode)
+		{
+			var jsonData = await responseMessage.Content.ReadAsStringAsync();
+			var values = JsonConvert.DeserializeObject<List<ResultBookingStatusApproved>>(jsonData);
+			return View(values);
+		}
+		return View();
+	}
+
+
 
 
 

@@ -1,0 +1,90 @@
+﻿@model List<ResultBookingStatusApproved>
+
+@{
+	ViewData["Title"] = "GetBookingStatusReceived";
+	Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+
+
+<div class="content">
+	<div class="container-fluid">
+		<script type="text/javascript">
+			$(document).ready(() => {
+				var connection = new signalR.HubConnectionBuilder().withUrl("https://localhost:7029/SignalRHub").build();
+				$("#connstatus").text(connection.state);
+
+
+				connection.start().then(() => {
+					$("#connstatus").text(connection.state);
+					setInterval(() => {
+						connection.invoke("GetBookingStatusReceived");
+					}, 1000);
+
+				}).catch((err) => {
+					console.log(err)
+				});
+
+
+				connection.on("ReceiveBookingStatusReceived", (value) => {
+					console.log(value);
+					let tablehtml = `<table class=table mt-3>
+										<thead>
+											<tr>
+												<th scope="col">#</th>
+												<th scope="col">Ad Soyad</th>
+												<th scope="col">Telefon</th>
+												<th scope="col">Kişi Sayısı</th>
+												<th scope="col">Tarih</th>
+												<th scope="col">Rezervasyon Durumu</th>
+												<th scope="col">Onayla</th>
+												<th scope="col">İptal Et</th>
+											</tr>
+										</thead>
+									</tbody>`
+					$.each(value, (index, item) => {
+						tablehtml += `
+								<tr>
+									<th>${index + 1}</th>
+									<td>${item.name}</td>
+									<td>${item.phone}</td>
+									<td>${item.personelCount}</td>
+									<td>${item.date}</td>
+									<td>${item.description}</td>
+									<td><a href="/Booking/BookingStatusApproved/${item.bookingID}" class="btn btn-outline-info">Onayla</a></td>
+									<td><a href="/Booking/BookingStatusCanceled/${item.bookingID}" class="btn btn-outline-dark">İptal Et</a></td>
+								</tr>`
+					});
+					tablehtml += "</tbody></table>";
+					$("#bookingList").html(tablehtml);
+				});
+			});
+		</script>
+		<h4 class="page-title">Alınan Rezervasyon İşlemleri</h4>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title">Alınan Rezervasyon Listesi</div>
+					</div>
+					<div class="card-body">
+						<div class="card-sub">
+							Alınan Rezervasyon ile ilgili işlemleri aşağıdan gerçekleştirebilirsiniz.
+						</div>
+						<div id="bookingList"></div>
+
+						<div class="col-md-8">
+							<ul class="list-group" id="bookingList"></ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

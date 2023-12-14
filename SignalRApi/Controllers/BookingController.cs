@@ -89,4 +89,18 @@ public class BookingController : ControllerBase
         var values = context.Bookings.Where(x => x.Description == "Rezervasyon Onaylandı").ToList();
 		return Ok(values.ToList());
 	}
+	[HttpGet("GetBookingStatusCanceled")]
+	public IActionResult GetBookingStatusCanceled()
+	{
+		var context = new SignalRContext();
+		var values = context.Bookings.Where(x => x.Description == "Rezervasyon İptal Edildi").ToList();
+		return Ok(values.ToList());
+	}
+	[HttpGet("GetBookingStatusReceived")]
+	public IActionResult GetBookingStatusReceived()
+	{
+		var context = new SignalRContext();
+		var values = context.Bookings.Where(x => x.Description == "Rezervasyon Alındı").ToList();
+		return Ok(values.ToList());
+	}
 }

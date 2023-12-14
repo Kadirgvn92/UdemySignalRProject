@@ -38,4 +38,18 @@ public class EfBookingDal : GenericRepository<Booking>, IBookingDal
 		var values = context.Bookings.Where(x => x.Description == "Rezervasyon Onaylandı").ToList();
 		return values;
 	}
+
+	public List<Booking> GetBookingStatusCanceled()
+	{
+		var context = new SignalRContext();
+		var values = context.Bookings.Where(x => x.Description == "Rezervasyon İptal Edildi").ToList();
+		return values;
+	}
+
+	public List<Booking> GetBookingStatusReceived()
+	{
+		var context = new SignalRContext();
+		var values = context.Bookings.Where(x => x.Description == "Rezervasyon Alındı").ToList();
+		return values;
+	}
 }

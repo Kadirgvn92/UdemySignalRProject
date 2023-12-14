@@ -98,6 +98,16 @@ public class SignalRHub : Hub
 		var values = _bookingService.TGetBookingStatusApproved();
 		await Clients.All.SendAsync("ReceiveBookingStatusApproved", values);
 	}
+	public async Task GetBookingStatusCanceled()
+	{
+		var values = _bookingService.TGetBookingStatusCanceled();
+		await Clients.All.SendAsync("ReceiveBookingStatusCanceled", values);
+	}
+	public async Task GetBookingStatusReceived()
+	{
+		var values = _bookingService.TGetBookingStatusReceived();
+		await Clients.All.SendAsync("ReceiveBookingStatusReceived", values);
+	}
 	public async Task SendNotification()
 	{
 		var value = _notificationService.TNotificationCountByStatusFalse();

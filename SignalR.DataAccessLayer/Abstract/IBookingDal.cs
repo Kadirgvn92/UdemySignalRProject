@@ -11,4 +11,6 @@ public interface IBookingDal : IGenericDal<Booking>
 	void BookingStatusApproved(int id);
 	void BookingStatusCanceled(int id);
 	List<Booking> GetBookingStatusApproved();
+	List<Booking> GetBookingStatusCanceled();
+	List<Booking> GetBookingStatusReceived();
 }

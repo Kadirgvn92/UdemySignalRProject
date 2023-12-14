@@ -22,6 +22,16 @@ public class BookingManager : IBookingService
 		_bookingDal.BookingStatusCanceled(id);
 	}
 
+	public List<Booking> TGetBookingStatusCanceled()
+	{
+		return _bookingDal.GetBookingStatusCanceled();
+	}
+
+	public List<Booking> TGetBookingStatusReceived()
+	{
+		return _bookingDal.GetBookingStatusReceived();
+	}
+
 	public void TAdd(Booking entity)
     {
         _bookingDal.Add(entity);
