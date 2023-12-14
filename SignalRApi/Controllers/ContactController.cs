@@ -28,6 +28,10 @@ public class ContactController : ControllerBase
     {
         _contactService.TAdd(new Contact()
         {
+            FooterTitle = createContactDto.FooterTitle,
+            OpenDays = createContactDto.OpenDays,
+            OpenDaysDescription = createContactDto.OpenDaysDescription,
+            OpenHours = createContactDto.OpenHours,
             FooterDescription = createContactDto.FooterDescription,
             Location = createContactDto.Location,
             Mail = createContactDto.Mail,
@@ -54,7 +58,11 @@ public class ContactController : ControllerBase
     {
         _contactService.TUpdate(new Contact()
         {
-            ContactID = updateContactDto.ContactID, 
+            ContactID = updateContactDto.ContactID,
+            FooterTitle = updateContactDto.FooterTitle,
+            OpenDays = updateContactDto.OpenDays,
+            OpenDaysDescription = updateContactDto.OpenDaysDescription,
+            OpenHours = updateContactDto.OpenHours,
             FooterDescription = updateContactDto.FooterDescription,
             Location = updateContactDto.Location,
             Mail = updateContactDto.Mail,
