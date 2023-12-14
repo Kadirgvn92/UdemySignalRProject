@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using SignalR.DtoLayer.AboutDto;
 using SignalR.DtoLayer.SliderDto;
 using SignalR.EntityLayer.Entities;
 

@@ -1,4 +1,4 @@
-﻿@model List<ResultFeatureDto>
+﻿@model List<ResultSliderDto>
 
 @{
 	ViewData["Title"] = "Index";
@@ -37,20 +37,20 @@
 								@foreach (var item in Model)
 								{
 									<tr>
-										<td>@item.FeatureID</td>
+										<td>@item.SliderID</td>
 										<td>@item.Title1</td>
 										<td>@item.Title2</td>
 										<td>@item.Title3</td>
 										<td>@item.Description1</td>
 										<td>@item.Description2</td>
 										<td>@item.Description3</td>
-										<td><a href="/Feature/DeleteFeature/@item.FeatureID" class="btn btn-outline-danger">Sil</a></td>
-										<td><a href="/Feature/UpdateFeature/@item.FeatureID" class="btn btn-outline-success">Güncelle</a></td>
+										<td><a href="/Slider/DeleteSlider/@item.SliderID" class="btn btn-outline-danger">Sil</a></td>
+										<td><a href="/Slider/UpdateSlider/@item.SliderID" class="btn btn-outline-success">Güncelle</a></td>
 									</tr>
 								}
 							</tbody>
 						</table>
-						<a href="/Feature/CreateFeature/" class="btn btn-outline-primary">Yeni Öne Çıkan Alan Girişi</a>
+						<a href="/Slider/CreateSlider/" class="btn btn-outline-primary">Yeni Öne Çıkan Alan Girişi</a>
 					</div>
 				</div>
 			</div>
