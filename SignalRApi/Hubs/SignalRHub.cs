@@ -60,7 +60,7 @@ public class SignalRHub : Hub
 		await Clients.All.SendAsync("ReceiveProductNameByMinPrice", values9);
 
 		var values10 = _productService.TProductAvgPriceByHamburger();
-		await Clients.All.SendAsync("ReceiveProductAvgPriceByHamburger", values10);
+		await Clients.All.SendAsync("ReceiveProductAvgPriceByHamburger", values10.ToString("0.00" + "₺"));
 
 		var values11 = _orderService.TTotalOrderCount();
 		await Clients.All.SendAsync("ReceiveTotalOrderCount", values11);

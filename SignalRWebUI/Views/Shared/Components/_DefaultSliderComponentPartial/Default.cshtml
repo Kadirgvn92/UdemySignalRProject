@@ -1,9 +1,13 @@
 ﻿@model List<ResultSliderDto>
-@foreach (var item in Model)
-{
+
+
+    
     <section class="slider_section ">
         <div id="customCarousel1" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
+            @foreach (var item in Model)
+            {
+                <input type="hidden" asp-for="@item.SliderID" />
                 <div class="carousel-item active">
                     <div class="container ">
                         <div class="row">
@@ -34,7 +38,7 @@
                                         @item.Title2
                                     </h1>
                                     <p>
-                                        @item.Description2   
+                                        @item.Description2
                                     </p>
                                     <div class="btn-box">
                                         <a href="/Menu/Index/" class="btn1">
@@ -67,6 +71,8 @@
                         </div>
                     </div>
                 </div>
+            }
+
             </div>
             <div class="container">
                 <ol class="carousel-indicators">
