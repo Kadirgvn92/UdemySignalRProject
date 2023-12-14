@@ -3,6 +3,7 @@
 @{
 	ViewData["Title"] = "Index";
 	Layout = "~/Views/AdminLayout/Index.cshtml";
+	int count = 0;
 }
 
 
@@ -29,18 +30,23 @@
 									<th scope="col">Durum</th>
 									<th scope="col">Sil</th>
 									<th scope="col">Güncelle</th>
+									<th scope="col">Aktif Yap</th>
+									<th scope="col">Pasif Yap</th>
 								</tr>
 							</thead>
 							<tbody>
 								@foreach (var item in Model)
 								{
+									count++;
 									<tr>
-										<td>@item.DiscountID</td>
+										<td>@count</td>
 										<td>@item.Title</td>
 										<td>@item.Amount</td>
-										<td><a href="/Discount/DeleteDiscount/@item.DiscountID" class="btn btn-outline-warning">Durum</a></td>
+										<td>@item.Status</td>
 										<td><a href="/Discount/DeleteDiscount/@item.DiscountID" class="btn btn-outline-danger">Sil</a></td>
 										<td><a href="/Discount/UpdateDiscount/@item.DiscountID" class="btn btn-outline-success">Güncelle</a></td>
+										<td><a href="/Discount/ChangeStatusToTrue/@item.DiscountID" class="btn btn-outline-warning">Aktif Yap</a></td>
+										<td><a href="/Discount/ChangeStatusToFalse/@item.DiscountID" class="btn btn-outline-dark">Pasif Yap</a></td>
 									</tr>
 								}
 							</tbody>
