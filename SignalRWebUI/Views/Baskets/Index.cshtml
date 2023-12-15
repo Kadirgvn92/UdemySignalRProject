@@ -3,10 +3,10 @@
 @{
     Layout = null;
     int count = 0;
-    decimal basketTotalPrice=0;
+    decimal basketTotalPrice = 0;
     decimal tax = 0;
     decimal basketTotalPriceWithTax = 0;
-
+    int productCount = 0;
 }
 
 <!DOCTYPE html>
@@ -18,7 +18,8 @@
 
 
     @await Component.InvokeAsync("_MenuNavbarComponentPartial")
-    <br /><br />
+    <br />
+    <br />
     <div class="container-fluid">
         <div class="row px-xl-5">
             <div class="col-12">
@@ -58,8 +59,11 @@
                                 <td class="align-middle">@item.Count</td>
                                 <td class="align-middle">@item.Price</td>
                                 <td class="align-middle">@item.TotalPrice</td>
-                                <td class="align-middle btn-delete"><a class="btn btn-sm btn-danger" href="/Baskets/DeleteBasket/@item.BasketID">
-                                    <i class="fa fa-times"></i></a></td>
+                                <td class="align-middle btn-delete">
+                                    <a class="btn btn-sm btn-danger" href="/Baskets/DeleteBasket/@item.BasketID">
+                                        <i class="fa fa-times"></i>
+                                    </a>
+                                </td>
                             </tr>
                         </tbody>
                     }

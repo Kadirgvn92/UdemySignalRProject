@@ -1,6 +1,5 @@
-﻿--CategoryCount
---ProductCount
---Aktif Kategori sayısı
---Pasif kategori sayısı
+﻿
 
---
+
+- Sepetteki ürünlerden birden fazla olduğunda count arttırılması yapılacak
+- Admin tarafında rezervasyon tarihi kısa tarih yapılacak
