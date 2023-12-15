@@ -98,7 +98,7 @@ public class BookingController : Controller
 	}
 	public async Task<IActionResult> GetBookingStatusApproved(ResultBookingStatusApproved resultBookingStatusApproved)
 	{
-		
+       
 		var client = _httpClientFactory.CreateClient();
 		var responseMessage = await client.GetAsync("https://localhost:7029/api/Product/GetBookingStatusApproved");
 		if (responseMessage.IsSuccessStatusCode)

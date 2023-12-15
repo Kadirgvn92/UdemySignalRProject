@@ -13,5 +13,5 @@ public class ResultBookingStatusApproved
 	public string Phone { get; set; }
 	public string Mail { get; set; }
 	public int PersonelCount { get; set; }
-	public DateTime Date { get; set; }
+	public DateTime Date { get; set; } // dikkat değişti datetime eskisi
 }
