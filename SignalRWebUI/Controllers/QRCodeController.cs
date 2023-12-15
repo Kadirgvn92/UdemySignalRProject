@@ -1,12 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using QRCoder;
-using SignalR.DataAccessLayer.Concrete;
 using System.Drawing;
 using System.Drawing.Imaging;
 
 namespace SignalRWebUI.Controllers;
 public class QRCodeController : Controller
 {
+    [HttpGet]
+    public IActionResult Index()
+    {
+        return View();
+    }
+
+    [HttpPost]
     public IActionResult Index(string value)
     {
         using (MemoryStream memoryStream = new MemoryStream())
@@ -15,8 +21,11 @@ public class QRCodeController : Controller
             QRCodeGenerator.QRCode squareCode = createQRCode.CreateQrCode(value, QRCodeGenerator.ECCLevel.Q);
             using (Bitmap image = squareCode.GetGraphic(10))
             {
-                image.Save(memoryStream, ImageFormat.Png);
-                ViewBag.QRCodeImage = "data:image/png;base64" + Convert.ToBase64String(memoryStream.ToArray());
+				image.Save(memoryStream, ImageFormat.Png);
+				if (memoryStream != null)
+				{
+					ViewBag.QRCodeImage = "data:image/png;base64," + Convert.ToBase64String(memoryStream.ToArray());
+				}
             };
         }
 
