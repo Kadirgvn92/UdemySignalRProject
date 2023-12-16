@@ -21,7 +21,7 @@ public class MailController : Controller
 		mimeMessage.To.Add(mailboxAddressTo);
 
 		var bodyBuilder = new BodyBuilder();
-		bodyBuilder.TextBody = createMailDto.Body;
+		bodyBuilder.HtmlBody = createMailDto.Body;
 		mimeMessage.Body = bodyBuilder.ToMessageBody();
 
 		mimeMessage.Subject = createMailDto.Subject;
@@ -35,4 +35,5 @@ public class MailController : Controller
 
 		return RedirectToAction("Index","Category");
 	}
+
 }

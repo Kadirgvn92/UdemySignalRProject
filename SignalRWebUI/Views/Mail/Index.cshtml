@@ -27,7 +27,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="Body">Mesajınız</label>
-                                <textarea rows="5" asp-for="Body" id="Body" class="form-control"></textarea>
+                                <div id="editor" style="height: 300px;"></div>
+                                <input type="hidden" id="Body" name="Body" asp-for="Body">
                             </div>
                         </div>
                         <div class="card-action">
@@ -40,6 +41,28 @@
     </div>
 </div>
 
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+<script>
+    var quill = new Quill('#editor', {
+        theme: 'snow',
+        modules: {
+            toolbar: [
+                [{ header: [1, 2, false] }],
+                ['bold', 'italic', 'underline', 'strike'],
+                ['blockquote', 'code-block'],
+                [{ color: [] }],
+                [{ list: 'ordered' }, { list: 'bullet' }],
+                ['link', 'image', 'video'],
+                ['clean']
+            ],
+        },
+    });
+    quill.on('text-change', function () {
+        document.getElementById('Body').value = quill.root.innerHTML;
+    });
+</script>
 
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
