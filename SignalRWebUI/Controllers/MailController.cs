@@ -15,7 +15,7 @@ public class MailController : Controller
 	public IActionResult Index(CreateMailDto createMailDto)
 	{
 		MimeMessage mimeMessage = new MimeMessage();
-		MailboxAddress mailboxAddressFrom = new MailboxAddress("BombBurger Rezervasyon", "Mail adresi");
+		MailboxAddress mailboxAddressFrom = new MailboxAddress("BombBurger Rezervasyon", "kadirgvn92@gmail.com");
 		mimeMessage.From.Add(mailboxAddressFrom);
 		MailboxAddress mailboxAddressTo = new MailboxAddress("User", createMailDto.ReceiverMail);
 		mimeMessage.To.Add(mailboxAddressTo);
@@ -28,7 +28,7 @@ public class MailController : Controller
 		
 		SmtpClient smtpClient = new SmtpClient();
 		smtpClient.Connect("smtp.gmail.com",587,false);
-		smtpClient.Authenticate("Mail Adresi", "");
+		smtpClient.Authenticate("kadirgvn92@gmail.com", "oytz kefm nioc ccyu");
 
 		smtpClient.Send(mimeMessage);
 		smtpClient.Disconnect(true);
