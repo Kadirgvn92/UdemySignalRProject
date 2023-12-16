@@ -22,8 +22,10 @@ public class AboutController : Controller
 		{
 			var jsonData = await responseMessage.Content.ReadAsStringAsync();
 			var values = JsonConvert.DeserializeObject<List<ResultAboutDto>>(jsonData);
+			await Task.Delay(1500);
 			return View(values);
 		}
+		await Task.Delay(1500);
 		return View();
 	}
 	[HttpGet]
@@ -41,8 +43,12 @@ public class AboutController : Controller
 		var responseMessage = await client.PostAsync("https://localhost:7029/api/About", stringContent);
 		if (responseMessage.IsSuccessStatusCode)
 		{
+
+			await Task.Delay(1500);
 			return RedirectToAction("Index");
 		}
+
+		await Task.Delay(1500);
 		return View();
 	}
 
@@ -80,8 +86,10 @@ public class AboutController : Controller
 		var responseMessage = await client.PutAsync("https://localhost:7029/api/About", stringContent);
 		if (responseMessage.IsSuccessStatusCode)
 		{
+			await Task.Delay(1500);
 			return RedirectToAction("Index");
 		}
+		await Task.Delay(1500);
 		return View();
 	}
 }

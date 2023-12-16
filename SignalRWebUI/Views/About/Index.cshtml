@@ -35,7 +35,7 @@
 									<tr>
 										<td>@item.Title</td>
 										<td>@item.Description</td>
-										<td><a href="/About/DeleteAbout/@item.AboutID" class="btn btn-outline-danger">Sil</a></td>
+										<td><a href="/About/DeleteAbout/@item.AboutID" class="btn btn-outline-danger" onclick="deleteContent()">Sil</a></td>
 										<td><a href="/About/UpdateAbout/@item.AboutID" class="btn btn-outline-success">Güncelle</a></td>
 									</tr>
 								}
@@ -49,3 +49,18 @@
 	</div>
 </div>
 
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+	function deleteContent(){
+		Swal.fire({
+			position: "top-end",
+			icon: "success",
+			title: "İçerik Silindi",
+			showConfirmButton: false,
+			timer: 1500
+		});
+	}
+
+</script>

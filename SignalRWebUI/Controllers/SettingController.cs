@@ -34,8 +34,11 @@ public class SettingController : Controller
 			user.UserName = userEditDto.Username;
 			user.Email = userEditDto.Mail;
 			user.PasswordHash = _userManager.PasswordHasher.HashPassword(user,userEditDto.Password);
+			await Task.Delay(2000);
 			await _userManager.UpdateAsync(user);
+			return RedirectToAction("Index", "Category");
 		}
+		await Task.Delay(2000);
 		return  NoContent();
 	}
 }
