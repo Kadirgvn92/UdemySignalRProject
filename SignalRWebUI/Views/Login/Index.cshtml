@@ -12,6 +12,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<!-- Font-->
 	<link rel="stylesheet" type="text/css" href="~/colorlib-regform-32/css/nunito-font.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 	<!-- Main Style Css -->
 	<link rel="stylesheet" href="~/colorlib-regform-32/css/style.css" />
 </head>
@@ -21,7 +22,7 @@
 			<div class="form-left">
 				<img src="~/colorlib-regform-32/images/b.jpg" width="484" height="655px" alt="form">
 			</div>
-			<form class="form-detail" method="post">
+ 			<form class="form-detail" method="post">
 				<h2>Giriş Formu</h2>
 				<div>
 					<input type="text" id="Username" class="input-text" placeholder="Kullanıcı Adınız" required asp-for="Username">
@@ -29,9 +30,10 @@
 				<div class="form-row">
 					<input type="password" id="Password" class="input-text" placeholder="Şifreniz" required asp-for="Password">
 				</div>
-				<button class="btn btn-dark">Giriş Yap</button>
-			</form>
+				<button class="btn btn-block btn-primary btn-lg">Giriş Yap</button>
+			</form> 
 		</div>
 	</div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" ></script>
 </body>
 </html>
