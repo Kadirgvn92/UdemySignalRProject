@@ -15,7 +15,13 @@ public EfMenuTableDal(SignalRContext context) : base(context)
 	{
 	}
 
-	public int MenuTableCount()
+    public int ActiveMenuTableCount()
+    {
+        using var context = new SignalRContext();
+		return context.MenuTables.Count(x => x.Status == true);
+    }
+
+    public int MenuTableCount()
 	{
 		using var context = new SignalRContext();
 		return context.MenuTables.Count();

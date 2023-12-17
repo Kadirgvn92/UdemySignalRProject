@@ -103,4 +103,9 @@ public class BookingController : ControllerBase
 		var values = context.Bookings.Where(x => x.Description == "Rezervasyon Alındı").ToList();
 		return Ok(values.ToList());
 	}
+    [HttpGet("BookingStatusApprovedCount")]
+    public IActionResult BookingStatusApprovedCount()
+    {
+        return Ok(_bookingService.TBookingStatusApprovedCount());
+    }
 }

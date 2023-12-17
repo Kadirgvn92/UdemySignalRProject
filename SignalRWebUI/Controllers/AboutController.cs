@@ -34,7 +34,14 @@ public class AboutController : Controller
 		return View();
 	}
 
-	[HttpPost]
+    public async Task<IActionResult> UIAbout()
+    {
+        var client = _httpClientFactory.CreateClient();
+        await client.GetAsync($"https://localhost:7029/api/UIAbout");
+        return RedirectToAction("Index");
+    }
+
+    [HttpPost]
 	public async Task<IActionResult> CreateAbout(CreateAboutDto createAboutDto)
 	{
 		var client = _httpClientFactory.CreateClient();

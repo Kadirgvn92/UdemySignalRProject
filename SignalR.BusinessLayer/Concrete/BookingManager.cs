@@ -61,4 +61,9 @@ public class BookingManager : IBookingService
     {
         _bookingDal.Update(entity);
     }
+
+    public int TBookingStatusApprovedCount()
+    {
+        return _bookingDal.BookingStatusApprovedCount();
+    }
 }

@@ -62,4 +62,11 @@ public class AboutController : ControllerBase
         var value = _aboutService.TGetByID(id);
         return Ok(value);
     }
+    //[HttpGet("UIAbout")]
+    //public IActionResult UIAbout()
+    //{
+    //    var values = _aboutService.TGetListAll();
+    //    return Ok(values);
+    //}
+
 }

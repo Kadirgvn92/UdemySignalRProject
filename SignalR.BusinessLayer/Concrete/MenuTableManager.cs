@@ -17,7 +17,12 @@ public class MenuTableManager : IMenuTableService
 		_menuTableDal = menuTableDal;
 	}
 
-	public void TAdd(MenuTable entity)
+    public int TActiveMenuTableCount()
+    {
+        return _menuTableDal.ActiveMenuTableCount();
+    }
+
+    public void TAdd(MenuTable entity)
 	{
 		_menuTableDal.Add(entity);	
 	}

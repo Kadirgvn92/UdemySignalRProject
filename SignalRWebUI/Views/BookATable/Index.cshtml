@@ -23,7 +23,7 @@
       <div class="row">
         <div class="col-md-6">
           <div class="form_container">
-            <form method="post">
+            <form method="post" asp-controller="BookATable" asp-action="Index">
               <div>
                 <input type="text" class="form-control" placeholder="Adınız Soyadınız" asp-for="Name"/>
               </div>
@@ -62,8 +62,8 @@
                 <input type="date" class="form-control" asp-for="Date">
               </div>
               <div class="btn_box">
-                <button>
-                  Yerinizi Ayırtın..
+                <button class="btn">
+                  Yerinizi Ayırtın
                 </button>
               </div>
             </form>

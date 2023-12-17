@@ -24,7 +24,14 @@ public class EfBookingDal : GenericRepository<Booking>, IBookingDal
 		context.SaveChanges();
 	}
 
-	public void BookingStatusCanceled(int id)
+    public int BookingStatusApprovedCount()
+    {
+		using var context = new SignalRContext();
+		var values = context.Bookings.Where(x => x.Description == "Rezervasyon Onaylandı").Count();
+		return values;
+    }
+
+    public void BookingStatusCanceled(int id)
 	{
 		using var context = new SignalRContext();
 		var values = context.Bookings.Find(id);
