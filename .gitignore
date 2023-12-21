@@ -362,3 +362,5 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /SignalRWebUI/ToDoList/TextFile.txt
+/SignalRWebUI/ToDoList/MailPassword.cs
+/SignalRWebUI/Controllers/MailController.cs
