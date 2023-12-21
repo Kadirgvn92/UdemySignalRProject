@@ -6,6 +6,7 @@
     decimal basketTotalPrice = 0;
     decimal tax = 0;
     decimal basketTotalPriceWithTax = 0;
+    decimal totalPriceWithCount = 0;
     int productCount = 0;
 }
 
@@ -46,19 +47,27 @@
                             <th>Sil</th>
                         </tr>
                     </thead>
-                    @foreach (var item in Model)
+                    @foreach (var group in Model.GroupBy(x => x.ProductName)) //Burada ProductName ile Gruplama yaparak hepsini süzebiliyoruz
                     {
+                        var item = group.First(); // Grubun ilk öğesini alabilyoruz, çünkü tüm öğeler aynı ürünü temsil ediyor.
+                        var itemCount = group.Count(); //Daha sonra burada count alabilmek için gruplanmış olan productnamelerin count ulaşıyoruz 
+                                                        //Aslında yapmak istediğimiz ürünlerin kaç tane olduğunu burada tespit ediyoruz.
+
                         basketTotalPrice = Model.Sum(x => x.Price);
                         tax = basketTotalPrice / 100 * 10;
                         basketTotalPriceWithTax = basketTotalPrice + tax;
                         count++;
+
+                        totalPriceWithCount = item.Price * itemCount; // yukarıda totalpricewithcount olarak bir decimal ekledikten sonra listede
+                                                                        //count * price yaparak totalprice bulabiliyoruz.
+
                         <tbody class="align-middle">
                             <tr>
                                 <td class="align-middle">@count</td>
                                 <td class="align-middle">@item.ProductName</td>
-                                <td class="align-middle">@item.Count</td>
+                                <td class="align-middle">@itemCount</td>  
                                 <td class="align-middle">@item.Price</td>
-                                <td class="align-middle">@item.TotalPrice</td>
+                                <td class="align-middle">@totalPriceWithCount</td>
                                 <td class="align-middle btn-delete">
                                     <a class="btn btn-sm btn-danger" href="/Baskets/DeleteBasket/@item.BasketID">
                                         <i class="fa fa-times"></i>
