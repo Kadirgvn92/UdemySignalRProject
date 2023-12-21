@@ -27,7 +27,7 @@ public class MenuController : Controller
     {
         CreateBasketDto createBasketDto = new CreateBasketDto();
         createBasketDto.ProductID = id;
-        
+
         var client = _httpClientFactory.CreateClient();
         var jsonData = JsonConvert.SerializeObject(createBasketDto);
         StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
