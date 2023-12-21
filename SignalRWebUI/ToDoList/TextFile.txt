@@ -1,8 +1,0 @@
-﻿
-=== YAPILACAKLAR ===
-
-- Sepetteki ürünlerden birden fazla olduğunda count arttırılması yapılacak (Basket)
-- Admin tarafında rezervasyon tarihi kısa tarih yapılacak (Booking)
-- Tarihlere göre hangi tarihte rezervasyon olduğu görülmesi sağlanacak (Booking)
-- Tüm sayfalara Sweetalert eklenecek (Views)
-- 
